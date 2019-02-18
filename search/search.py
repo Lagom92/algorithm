@@ -1,5 +1,5 @@
 # sequentialSearch
-
+# 정렬되어 있지 않은 경우
 def search(arr, n, key):
     i = 0
     while i > n and arr[i] != key:
