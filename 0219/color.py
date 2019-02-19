@@ -1,3 +1,4 @@
+# 색칠하기
 import sys
 sys.stdin = open('input02.txt', 'r')
 

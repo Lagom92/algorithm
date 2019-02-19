@@ -1,3 +1,4 @@
+# 이진탐색
 import sys
 sys.stdin = open('input04.txt', 'r')
 
@@ -8,7 +9,7 @@ for tc in range(1, T+1):
     left = 1
     right = book
     cntA = 0
-    while left < right:
+    while left < right:  # A 이진탐색
         mid = (left + right) // 2
         cntA += 1
         if mid == targetA:
@@ -21,7 +22,7 @@ for tc in range(1, T+1):
     left = 1
     right = book
     cntB = 0
-    while left < right:
+    while left < right:  # B 이진탐색
         mid = (left + right) // 2
         cntB += 1
         if mid == targetB:
@@ -31,7 +32,7 @@ for tc in range(1, T+1):
         else:
             left = mid
 
-    if cntA < cntB:
+    if cntA < cntB:  # 이진탐색 횟수 비교
         print(f"#{tc} A")
     elif cntA > cntB:
         print(f"#{tc} B")
