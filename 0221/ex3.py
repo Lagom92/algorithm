@@ -10,7 +10,8 @@ def dfs(n, v):
     while len(stack) != 0:  # 스택이 비어있지 않으면
         n = stack.pop()
         print(n, end=" ")
-        for i in range(1, v+1):
+        for i in range(V, 0, -1):
+        # for i in range(1, v+1):
             if adj[n][i] != 0 and visited[i] == 0:  # n 과 i 가 인접이고 방문하지 않은 노드면
                 stack.append(i)
                 visited[i] = 1
@@ -27,4 +28,6 @@ for i in range(E):
     adj[n1][n2] = 1  # 1 2 가 연결되있어,
     adj[n2][n1] = 1  # 2 1 도 연결되어있어, 화살표가 있으면 이건 없어야 함, 방향성이 없는 그래프
 
+# 1 > 2 > 4 > 6 > 7 > 5 , 3
+# 중복없이 빠짐없이 모든 번호 선택함
 dfs(1, V)
