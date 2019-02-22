@@ -14,6 +14,7 @@ def pal(N, M, string):
                 b += "".join(string[j + k])[i]
             if b == b[::-1]:  # 회문이면
                 return b
+    return None
 
 for test_case in range(10):
     tc = int(input())

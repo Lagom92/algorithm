@@ -1,5 +1,5 @@
 # 회문
-# 나중에 더 공부
+
 import sys
 sys.stdin = open("sample_input.txt", "r")
 
