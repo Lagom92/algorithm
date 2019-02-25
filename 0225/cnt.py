@@ -1,11 +1,11 @@
 # 최빈수 구하기
+import sys
+sys.stdin = open('sample_input02.txt', 'r')
 T = int(input())
 for tc in range(1, T+1):
     n = int(input())
     grade = list(input().split())
 
-    print(n)
-    print(grade)
     a=0
     b=0
     for i in grade:
@@ -13,5 +13,5 @@ for tc in range(1, T+1):
         # print(a)
         if a > b:
             b = a
-    print(a)
-    print(b)
+    print(f"#{tc} {b}")
+# ????
