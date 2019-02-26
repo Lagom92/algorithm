@@ -1,17 +1,16 @@
 # 최빈수 구하기
 import sys
-sys.stdin = open('sample_input02.txt', 'r')
+sys.stdin = open('input03.txt', 'r')
 T = int(input())
 for tc in range(1, T+1):
     n = int(input())
     grade = list(input().split())
 
-    a=0
-    b=0
+    result = 0
+    maxcnt = 0
     for i in grade:
-        a = grade.count(i)
-        # print(a)
-        if a > b:
-            b = a
-    print(f"#{tc} {b}")
-# ????
+        cnt = grade.count(i)
+        if cnt > maxcnt:
+            maxcnt = cnt
+            result = i
+    print(f"#{tc} {result}")
