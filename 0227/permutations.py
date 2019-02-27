@@ -9,5 +9,8 @@ for i in a:
 print("---")
 
 N = 3
+arr = [4, 8, 9]
 for j in permutations(range(N)):
-    print(j)
+    # print(j)
+    print(arr[j[0]], arr[j[1]], arr[j[2]])
+    
