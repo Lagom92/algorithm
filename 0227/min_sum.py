@@ -1,17 +1,21 @@
 # 배열 최소 합
-from itertools import permutations
 import sys
-sys.stdin = open('input03.txt', 'r')
+from itertools import permutations
 
+def find():
+    min = N*10+1
+    for p in permutations(range(N)):        # 순열 생성
+        s = 0
+        for i in range(N):
+            s += m[i][p[i]]                 # 순열을 이용해 합 구하기
+        if min > s:
+            min = s
+    return min
+
+sys.stdin = open('input06.txt', 'r')
 T = int(input())
 for tc in range(1, T+1):
     N = int(input())
-    arr = [list(map(int, input().split())) for x in range(N)]
+    m = [list(map(int,input().split())) for x in range(N)]   # 중첩리스트에 숫자 저장
 
-    print(N)
-    print(arr)
-
-    for i in permutations(range(N)):
-        # print(j)
-        for j in range(N):
-            print(arr[i[j]])
+    print(f"#{tc} {find()}")
