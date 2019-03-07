@@ -1,27 +1,12 @@
-N = int(input())
-arr = [input() for x in range(N)]
+T = int(input())
+for tc in range(1, T+1):
+    N, M = map(int, input().split())
 
-print(N)
-print(arr)
-total = 0
-for i in range(N):
-    for j in range(N):
-        if i + 1 <= j + 1:  # 왼쪽 아래
-            print(arr[i][j])
-            total += int(arr[i][j])
+    arr = [list(map(int, input().split())) for x in range(N)]
 
-        if i + 1 <= j + 1:  # 오른 위
-            print(arr[j][i])
-            total += int(arr[j][i])
-
-        if i <= j:  # 왼쪽 위
-            print(arr[N - i - 1][j])
-            total += int(arr[N - i - 1][j])
-
-        if i <= j:  # 오른쪽 아래
-            print(arr[N - j - 1][i])
-            total += int(arr[N - j - 1][i])
-
-print(total)
-
+    for i in range(N-M+1):
+        for j in range(N-M+1):
+            for m in range(M):
+                for n in range(M):
+                    print(arr[i+m][j+n])
 
