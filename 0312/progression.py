@@ -46,7 +46,7 @@ def addNumbers():  # 새 수열 추가
                 addLast(s[i])
     return
 
-def get():
+def get():   # 뒤에서 10개 출력
     global pTail
     p = pTail
     for i in range(10):
@@ -55,8 +55,8 @@ def get():
     print()
 
 
-import sys
-sys.stdin = open('input.txt', 'r')
+# import sys
+# sys.stdin = open('input.txt', 'r')
 T = int(input())
 
 for tc in range(1, T + 1):
