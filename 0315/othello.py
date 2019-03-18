@@ -1,4 +1,5 @@
 # 오셀로
+# 
 import sys
 sys.stdin = open('input01.txt','r')
 T = int(input())
