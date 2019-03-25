@@ -1,5 +1,5 @@
 # 신입사원_백
-
+# 수정 필요
 import sys
 input = sys.stdin.readline
 T = int(input())
