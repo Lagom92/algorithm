@@ -2,7 +2,7 @@
 T = int(input())
 
 def bfs(i, j):
-    global N, visited
+    # global N, visited
     di = [2, 2, -2, -2, -1, 1, 1, -1]
     dj = [1, -1, 1, -1, 2, 2, -2, -2]
     q = []

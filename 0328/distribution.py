@@ -8,15 +8,14 @@ def f(n, r, s):
     if n == r:
         if s > maxV:
             maxV = s
-        else:
-            return
+        return
     elif s <= maxV:
         return
     else:
         for i in range(n):
             if used[i] == 0:
                 used[i] = 1
-                f(n, r+1, s*table[r][i])
+                f(n, r+1, s*table[r][i])    # r번 사람이 i번 일을할때 성공확률을 s에 곱함
                 used[i] = 0
 
 for tc in range(1, T+1):
