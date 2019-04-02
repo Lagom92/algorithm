@@ -1,44 +1,41 @@
-def Dij(s, v):
-    u = [s]
+def find(b, t):
+    # 2진수로 만들 수 있는 숫자를 set으로 저장
+    # 각 자리 수는 문자열로 검사
+    bstr = str(b)
+    bset = set()
+    for i in range(len(bstr)):  # 문자열의 길이만큼 자리수
+        if (bstr[len(bstr) - i - 1] == '0'):
+            bset.add(int(str(b + 10 ** i), 2))
+        else:
+            bset.add(int(str(b - 10 ** i), 2))
+    # 3진수로 만들 수 있는 숫자 set
+    tstr = str(t)
+    tset = set()
+    for i in range(len(tstr)):
+        if (tstr[len(tstr) - i - 1] == '0'):
+            if (int(str(t + 10 ** i), 3) in bset):
+                return int(str(t + 10 ** i), 3)
+            if (int(str(t + 2 * 10 ** i), 3) in bset):
+                return int(str(t + 2 * 10 ** i), 3)
 
-    for i in range(v+1):
-        d[i] = adj[s][i]
+        elif (tstr[len(tstr) - i - 1] == '1'):
+            if ((int(str(t - 10 ** i), 3) in bset)):
+                return int(str(t - 10 ** i), 3)
+            if (int(str(t + 10 ** i), 3) in bset):
+                return int(str(t + 10 ** i), 3)
 
-    while len(u) != v:
-        minV = 10000000
-        w = 0
-        for i in range(1, v + 1):
-            if i not in u:
-                if d[i] < minV:
-                    minV = d[i]
-                    w = i
+        elif (tstr[len(tstr) - i - 1] == '2'):
+            if (int(str(t - 10 ** i), 3) in bset):
+                return int(str(t - 10 ** i), 3)
+            if ((int(str(t - 2 * 10 ** i), 3) in bset)):
+                return int(str(t - 2 * 10 ** i), 3)
 
-        u.append(w)
-
-        for i in range(1, v+1):
-            if adj[w][i] != 0 and adj[w][i] != 100000:    # 0 이나 max값이 아닌 것이면
-                d[i] = min(d[i], d[w] + adj[w][i])
-
+    # return (bset&tset) #교집합 중 한개만 리턴
 
 
 T = int(input())
-for tc in range(1, T+1):
-    V, E = map(int, input().split())
-
-    adj = [[100000]*(V+1) for x in range(V+1)]     # 행렬만듬
-
-    for i in range(V+1):    # 왼오 대각선 = 0, 출발 = 도착
-        adj[i][i] = 0
-
-    for i in range(E):    # 인접 정보 추가
-        n1, n2, w = map(int, input().split())
-        adj[n1][n2] = w
-
-    s = 0
-    d = [0]*(V+1)
-
-    Dij(s, V)
-
-
-    print(d)
-    print(d[-1])
+for tc in range(1, T + 1):
+    b = int(input())
+    t = int(input())
+    r = str(find(b, t))
+    print('#{} {}'.format(tc, r))

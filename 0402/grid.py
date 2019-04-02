@@ -29,6 +29,7 @@ def f(i, j):
             if 0 <= nx < 4 and 0 <= ny < 4:
                 q.append(nx)
                 q.append(ny)
+    return
 
 
 
